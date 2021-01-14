@@ -1,0 +1,43 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Create User</h3>
+    <form (ngSubmit)="onSubmit(id.value)">
+        
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" class="form-control" id="fullName" #fullName
+                placeholder="Enter Full Name" name="fullName"
+                [(ngModel)]="user.fullName">
+        </div>
+     
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" 
+            placeholder="Enter Email" name="username"
+           [(ngModel)]="user.username">
+        </div>  
+
+        <div class="form-group">
+            <label >Choose Parent </label>
+            <br>
+            <select  name="selectedUser" #id >
+                <option *ngFor="let client of userSelcte" [value]="client.id" > 
+                    {{ client.fullName}}
+                </option>
+            </select>
+        </div>
+<!--
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Choose Parent
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" *ngFor="let client of userSelcte" >
+                {{ client.fullName}}
+              </a>
+            </div>
+        </div>-->
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

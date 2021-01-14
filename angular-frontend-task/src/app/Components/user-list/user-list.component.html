@@ -1,0 +1,29 @@
+
+<h5>List Users</h5>
+
+<p-treeTable [value]="files" >
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Full Name</th>
+            <th>UserName</th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+        <tr>
+            <td>
+                <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+                {{rowData?.fullName}}
+            </td>
+            <td>{{rowData?.username}}</td> 
+            <td> 
+                <button (click)="updateUser(rowData.id)" class="btn btn-info">Update</button>
+                <button type="submit" (click)="deleteUser(rowData.id)" class="btn btn-danger" 
+                style="margin-left: 10px;">Delete</button> 
+            </td>    
+            
+        </tr>
+    </ng-template>
+</p-treeTable>
+
+
